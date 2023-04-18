@@ -29,6 +29,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Update the Square.
+
         Args:
             *args (ints): New attribute values.
                 - 1st argument represents id attribute
@@ -47,7 +48,7 @@ class Square(Rectangle):
                         self.id = arg
                 elif a == 1:
                     self.size = arg
-                    elif a == 2:
+                elif a == 2:
                     self.x = arg
                 elif a == 3:
                     self.y = arg
