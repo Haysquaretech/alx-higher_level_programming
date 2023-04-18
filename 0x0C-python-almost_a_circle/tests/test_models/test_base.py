@@ -37,7 +37,7 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertEqual(b1.id, b2.id - 1)
 
 
-        def test_unique_id(self):
+    def test_unique_id(self):
         self.assertEqual(12, Base(12).id)
 
     def test_nb_instances_after_unique_id(self):
@@ -64,7 +64,7 @@ class TestBase_instantiation(unittest.TestCase):
     def test_complex_id(self):
         self.assertEqual(complex(5), Base(complex(5)).id)
 
-        def test_dict_id(self):
+    def test_dict_id(self):
         self.assertEqual({"a": 1, "b": 2}, Base({"a": 1, "b": 2}).id)
 
     def test_bool_id(self):
@@ -88,7 +88,7 @@ class TestBase_instantiation(unittest.TestCase):
     def test_bytes_id(self):
         self.assertEqual(b'Python', Base(b'Python').id)
 
-        def test_bytearray_id(self):
+    def test_bytearray_id(self):
         self.assertEqual(bytearray(b'abcefg'), Base(bytearray(b'abcefg')).id)
 
     def test_memoryview_id(self):
@@ -116,7 +116,7 @@ class TestBase_to_json_string(unittest.TestCase):
         r = Rectangle(10, 7, 2, 8, 6)
         self.assertTrue(len(Base.to_json_string([r.to_dictionary()])) == 53)
 
-        def test_to_json_string_rectangle_two_dicts(self):
+    def test_to_json_string_rectangle_two_dicts(self):
         r1 = Rectangle(2, 3, 5, 19, 2)
         r2 = Rectangle(4, 2, 4, 1, 12)
         list_dicts = [r1.to_dictionary(), r2.to_dictionary()]
@@ -142,7 +142,7 @@ class TestBase_to_json_string(unittest.TestCase):
     def test_to_json_string_none(self):
         self.assertEqual("[]", Base.to_json_string(None))
 
-        def test_to_json_string_no_args(self):
+    def test_to_json_string_no_args(self):
         with self.assertRaises(TypeError):
             Base.to_json_string()
 
@@ -170,7 +170,7 @@ class TestBase_save_to_file(unittest.TestCase):
         except IOError:
             pass
 
-        def test_save_to_file_one_rectangle(self):
+    def test_save_to_file_one_rectangle(self):
         r = Rectangle(10, 7, 2, 8, 5)
         Rectangle.save_to_file([r])
         with open("Rectangle.json", "r") as f:
@@ -225,7 +225,7 @@ class TestBase_save_to_file(unittest.TestCase):
             Rectangle.save_to_file()
 
 
-            def test_save_to_file_more_than_one_arg(self):
+    def test_save_to_file_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
@@ -276,7 +276,7 @@ class TestBase_from_json_string(unittest.TestCase):
         self.assertEqual([], Base.from_json_string("[]"))
 
 
-        def test_from_json_string_no_args(self):
+    def test_from_json_string_no_args(self):
         with self.assertRaises(TypeError):
             Base.from_json_string()
 
@@ -330,7 +330,7 @@ class TestBase_create(unittest.TestCase):
         s2 = Square.create(**s1_dictionary)
         self.assertIsNot(s1, s2)
 
-         def test_create_square_equals(self):
+    def test_create_square_equals(self):
         s1 = Square(3, 5, 1, 7)
         s1_dictionary = s1.to_dictionary()
         s2 = Square.create(**s1_dictionary)
