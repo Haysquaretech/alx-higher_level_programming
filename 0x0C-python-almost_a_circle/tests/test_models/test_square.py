@@ -403,7 +403,7 @@ class TestSquare_stdout(unittest.TestCase):
         capture = TestSquare_stdout.capture_stdout(s, "display")
         self.assertEqual(" ###\n ###\n ###\n", capture.getvalue())
 
-        def test_display_size_y(self):
+    def test_display_size_y(self):
         s = Square(4, 0, 1, 9)
         capture = TestSquare_stdout.capture_stdout(s, "display")
         display = "\n####\n####\n####\n####\n"
@@ -619,7 +619,7 @@ class TestSquare_update_kwargs(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             s.update(y=-5)
 
-     def test_update_args_and_kwargs(self):
+    def test_update_args_and_kwargs(self):
         s = Square(10, 10, 10, 10)
         s.update(89, 2, y=6)
         self.assertEqual("[Square] (89) 10/10 - 2", str(s))
