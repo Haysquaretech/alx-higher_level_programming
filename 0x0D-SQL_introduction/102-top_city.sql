@@ -1,6 +1,6 @@
--- display the average temp of 3 cities
+-- displays the average temp of 3 cities
 -- during July and August
--- order by temperature desc
+-- ordered by temperature desc
 
 SELECT city, AVG(value) as avg_temp
 FROM temperatures
